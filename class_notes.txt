@@ -6,3 +6,7 @@ Installing django for environment
 # pip install Django==1.7.4
 
 # start server -> python manage.py runserver
+
+# Changes to model or sites - need to update migrations (changes)
+ --> python manage.py makemigrations
+ --> python manage.py migrate

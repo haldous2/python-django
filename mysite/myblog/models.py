@@ -13,5 +13,19 @@ class Post(models.Model):
     modified_date = models.DateTimeField(auto_now=True)
     published_date = models.DateTimeField(blank=True, null=True)
 
+    # Return unicode title
     def __unicode__(self):
         return self.title
+
+## Many To Many Relationship
+##     Posts have many Categories, Categories have many Posts
+##     Note: must save Category before adding Post(s)
+class Category(models.Model):
+
+    name = models.CharField(max_length=128)
+    description = models.TextField(blank=True)
+    posts = models.ManyToManyField(Post, blank=True, null=True, related_name='categories')
+
+    # Return unicode name
+    def __unicode__(self):
+        return self.name
