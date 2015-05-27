@@ -24,7 +24,10 @@ class Category(models.Model):
 
     name = models.CharField(max_length=128)
     description = models.TextField(blank=True)
+
+    ## Relationship
     posts = models.ManyToManyField(Post, blank=True, null=True, related_name='categories')
+    #posts = models.OneToOneField(Post, blank=True, null=True, related_name='categories')
 
     # Return unicode name
     def __unicode__(self):
