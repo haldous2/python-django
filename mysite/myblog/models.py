@@ -27,7 +27,7 @@ class Category(models.Model):
 
     ## Relationship
     posts = models.ManyToManyField(Post, blank=True, null=True, related_name='categories')
-    #posts = models.OneToOneField(Post, blank=True, null=True, related_name='categories')
+    #posts = models.OneToOneField(Post, primary_key=True)
 
     # Return unicode name
     def __unicode__(self):

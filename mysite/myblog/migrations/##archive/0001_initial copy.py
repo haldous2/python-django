@@ -41,7 +41,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='category',
             name='posts',
-            field=models.ManyToManyField(related_name='categories', null=True, to='myblog.Post', blank=True),
+            field=models.OneToOneField(related_name='categories', null=True, blank=True, to='myblog.Post'),
             preserve_default=True,
         ),
     ]
