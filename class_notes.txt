@@ -1,6 +1,9 @@
 
 Installing django for environment
 
+Note: if deleting mysite.db, superuser will be deleted
+      create superuser --> python manage.py createsuperuser
+
 # create virtualenv and activate
 
 # pip install Django==1.7.4

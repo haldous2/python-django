@@ -8,14 +8,24 @@ from myblog.models import Post, Category
 class PostTestCase(TestCase):
     fixtures = ['myblog_test_fixture.json', ]
 
+    ## init test
     def setUp(self):
         self.user = User.objects.get(pk=1)
 
+    ## function of test - will run since it has a test_ in front
     def test_unicode(self):
         expected = u"This is a title"
         p1 = Post(title=expected)
         actual = unicode(p1)
         self.assertEqual(expected, actual)
+
+    ## test, test of test
+    #def test_blah(self):
+    #    self.assertEqual('joe', 'bob')
+
+    def test_non_existent_post_returns_404(self):
+        resp = self.client.get('/post/9999')
+        self.assertEqual(resp.status_code, 404)
 
 
 class CategoryTestCase(TestCase):
